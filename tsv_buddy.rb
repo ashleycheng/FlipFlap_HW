@@ -3,8 +3,8 @@ module TsvBuddy
   # take_tsv: converts a String with TSV data into @data
   # parameter: tsv - a String in TSV format
   def take_tsv(tsv)
-  	output = []
-  	skills = []
+    output = []
+    skills = []
   	tsv.each_line { |line| skills << line }
     keys = skills[0].split("\t")
     keys.map! { |x| x.chomp }
