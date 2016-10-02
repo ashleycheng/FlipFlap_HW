@@ -5,7 +5,7 @@ require_relative 'flip_flap'
 
 YML_DATA = File.read('data/survey.yml')
 TSV_DATA = File.read('data/survey.tsv')
-
+#print TSV_DATA
 describe 'FlipFlap specs' do
   it 'supports tsv inputs' do
     FlipFlap.input_formats.must_include 'tsv'
