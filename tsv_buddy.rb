@@ -4,11 +4,10 @@ module TsvBuddy
   # parameter: tsv - a String in TSV format
   def take_tsv(tsv)
     output = []
-    skills = []
-  	tsv.each_line { |line| skills << line }
+    skills = tsv.split("\n")
     keys = skills[0].split("\t")
     keys.map! { |x| x.chomp }
-    skills.shift #shift remove elements at the beginning of an Array
+    skills.shift
 
     skills.each do |line|
       values = line.split("\t")
@@ -25,14 +24,12 @@ module TsvBuddy
     input_yml = @data
     line1 = input_yml[0]
     keys = line1.keys
-    head = keys.join("\t")
-    output = head+ "\n"
+    output = keys.join("\t")+ "\n"
     input_yml.each do |record|
       record.each_value { |value| output << value + "\t" }
       output.strip!
-
       output << "\n"
     end
     output
+    end
   end
-end
